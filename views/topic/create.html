@@ -30,6 +30,25 @@
     <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script>
         // 处理表单提交
+        // submit
+        $('#form').on('submit',function(e){
+            // 取消表单默认跳转
+            e.preventDefault();
+            // 获取变单数据
+              var data = $(this).serialize();
+            // const data = $(this).serialize();
+            $.post('/create',data,function(data){
+                console.log(data);
+                if(data.code===200){
+                    // window.location.href ='/'
+                    window.location.href='/';
+                    
+                } else{
+                    alert('添加失败')
+                }
+                
+            })
+        })
     </script>
 </body>
 

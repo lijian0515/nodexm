@@ -8,11 +8,6 @@ exports.showuser = (req, res) => {
     // res.re('signin.html');
     res.render('signin.html');
 }
-// 话题页
-// exports.showindex = (req, res) => {
-
-//     res.render('index.html');
-// }
 exports.showsigin = (req, res) => {
     const body = req.body;
     // console.log(body.email);
@@ -41,6 +36,11 @@ exports.showsigin = (req, res) => {
             })
 
         }
+        // 请求到的用户数据 证明获取成功 
+        
+        // req.session.user = data[0]; 
+        req.session.user = data[0];
+// console.log(req.session.user);
         res.send({
             code: 200,
             message: '登录成功'
@@ -49,6 +49,14 @@ exports.showsigin = (req, res) => {
 
     })
 
+  
 
 
-}
+
+
+}  
+exports.aaa = (req, res) => {
+        // res.re('signin.html');
+      delete req.session.user 
+      res.redirect('/signin')
+    }
