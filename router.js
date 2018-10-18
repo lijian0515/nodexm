@@ -17,16 +17,19 @@ router.get('/signin', c_user.showuser)
     // .post('/signin', c_user.handleSignin)
     .get('/', c_topic.showtopic)
     // 添加主题
-    .get('/topic/create',c_topic.showCreate)
-    .post('/create',c_topic.handlecreate)
-    // 话题编辑
-    .get('/topic/edit',c_topic.showedit)
-
+    .get('/topic/create', c_topic.showCreate)
+    .post('/create', c_topic.handlecreate)
     // 话题详情页
     // TopicDetails
-    .get('/topic/:TopicDetails',c_topic.TopicDetails)
-    .get('/signout',c_user.aaa);
-
+    // 动态获取id
+    .get('/topic/:TopicDetails', c_topic.TopicDetails)
+    .get('/signout', c_user.aaa)
+    // 删除信息
+    .get('/topic/detail/:delete', c_topic.DeleteTheTopic)
+    // 渲染话题编辑/topic/detail/edit
+    .get('/topic/detail/edit/:edit', c_topic.showedit)
+    // 修改内容
+    .post('/topic/reviseEdit',c_topic.reviseContent)
 
 
 

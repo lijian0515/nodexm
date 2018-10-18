@@ -23,8 +23,8 @@
                 {{else}}
                 <article class="markdown-body">
                     <h1>{{topicData.title}}</h1>
-                    <a href="/topic/detail/edit">编辑</a>
-                    <a href="/topic/detail/delete" id="delete_topic">删除</a>
+                    <a href="/topic/detail/edit/{{topicData.id}}">编辑</a>
+                    <a href="/topic/detail/{{topicData.id}}" id="delete_topic">删除</a>
                     <hr> {{topicData.content}}
                 </article>
                 <div class="panel panel-default">
@@ -53,6 +53,7 @@
                         <label for="exampleInputPassword1">添加回复</label>
                         <textarea class="form-control" name="" id="" cols="10" rows="10"></textarea>
                     </div>
+                    
                     <button type="submit" class="btn btn-success">回复</button>
                 </form>
                 {{/if}}
